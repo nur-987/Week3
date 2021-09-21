@@ -84,3 +84,7 @@ namespace PasswordChecker
 
 
 }
+
+/*Issues: Have not include coma in the special characters.
+ *         This checks for 2repetions instead of 3
+ */         
