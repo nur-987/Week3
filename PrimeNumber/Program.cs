@@ -26,24 +26,37 @@ namespace PrimeNumber
         public static void Checker(int num)
         {
             int i;
-            List<int> pmNumber = new List<int>();
+            //List<int> pmNumber = new List<int>();
 
-            for(i = 2; i<= num -1; i++)
+            for (i = 2; i<= num -1; i++)
             {
                 if(num % i == 0)
                 {
                     //not a PM
-                    Console.WriteLine("searching...");
+                    //Console.WriteLine("searching...");
+                    return;
                 }
             }
             if(i == num)
             {
-                pmNumber.Add(num);
-            }
-            //not a PM
-            Console.WriteLine("searching...");
+                //is a PM 
+                int x = num;
+                Reverse(x);
+                Console.WriteLine("This is a PM number:" + num);
 
-            Console.WriteLine(pmNumber);
+            }
+            return;
+
+        }
+
+        public static void Reverse(int num)
+        {
+            List<int> pmNumber = new List<int>();
+            pmNumber.Add(num);
         }
     }
 }
+
+/*Currently cannot store the PM number 
+ * and reverse it to do a 2nd check
+ */
