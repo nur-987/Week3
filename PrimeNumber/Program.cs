@@ -42,7 +42,7 @@ namespace PrimeNumber
                 //is a PM 
                 int x = num;
                 Reverse(x);
-                Console.WriteLine("This is a PM number:" + num);
+                Console.WriteLine("This is a PM number:" + x);
 
             }
             return;
