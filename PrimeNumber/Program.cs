@@ -14,26 +14,25 @@ namespace PrimeNumber
     /// </summary>
     class Program
     {
+        public static List<int> pmNumber = new List<int>();
         static void Main(string[] args)
         {
             Console.WriteLine("Lets check for prime number from 1 to 100");
             for(int i = 1; i <= 100; i++)
             {
-                Checker(i);
+                CheckifPrime(i);
             }
         }
 
-        public static void Checker(int num)
+        public static void CheckifPrime(int num) //CheckIfPrime
         {
             int i;
-            //List<int> pmNumber = new List<int>();
 
             for (i = 2; i<= num -1; i++)
             {
                 if(num % i == 0)
                 {
                     //not a PM
-                    //Console.WriteLine("searching...");
                     return;
                 }
             }
@@ -51,7 +50,6 @@ namespace PrimeNumber
 
         public static void Reverse(int num)
         {
-            List<int> pmNumber = new List<int>();
             pmNumber.Add(num);
         }
     }
