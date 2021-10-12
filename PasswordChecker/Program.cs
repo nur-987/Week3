@@ -30,51 +30,64 @@ namespace PasswordChecker
 
             }
 
-            if (myPass.Length > 6)
+            if(myPass.Length <6 || myPass.Length > 24)
             {
-                if (myPass.Length < 24)
-                {
-                    char[] specialChar = {'!', '@', '#','$','%', '^', '&', '*','(',')', '+', '=', '_', '-', '{', '}', '[', ']',
-                                        ';', ':', '"','?', '<', '>', ',', '.' };
-                    foreach (char c in specialChar)
-                    {
-                        if (myPass.Contains(c))
-                        {
-                            if (myPass.Any(char.IsUpper))
-                            {
-                                if (myPass.Any(char.IsLower))
-                                {
-                                    if (myPass.Any(char.IsDigit))
-                                    {
-                                        Console.WriteLine("Checking.....");
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("Password needs to have a digit");
-                                    }
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Password has to have lower casing");
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("Password needs an Upper case");
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Password must have less than 24 characters");
-                }
+                Console.WriteLine("Invalid password length");
+                return;
+            }
 
-            }
-            else
+            char[] specialChar = {'!', '@', '#','$','%', '^', '&', '*','(',')', '+', '=', '_', '-', '{', '}', '[', ']',
+                                        ';', ':', '"','?', '<', '>', ',', '.' };
+            if (!myPass.Contains(specialChar))
             {
-                Console.WriteLine("Password has to be more than 6 characters");
+                Console.WriteLine("Contains a special char");
             }
+
+            //if (myPass.Length > 6)
+            //{
+            //    if (myPass.Length < 24)
+            //    {
+            //        char[] specialChar = {'!', '@', '#','$','%', '^', '&', '*','(',')', '+', '=', '_', '-', '{', '}', '[', ']',
+            //                            ';', ':', '"','?', '<', '>', ',', '.' };
+            //        foreach (char c in specialChar)
+            //        {
+            //            if (myPass.Contains(c))
+            //            {
+            //                if (myPass.Any(char.IsUpper))
+            //                {
+            //                    if (myPass.Any(char.IsLower))
+            //                    {
+            //                        if (myPass.Any(char.IsDigit))
+            //                        {
+            //                            Console.WriteLine("Checking.....");
+            //                        }
+            //                        else
+            //                        {
+            //                            Console.WriteLine("Password needs to have a digit");
+            //                        }
+            //                    }
+            //                    else
+            //                    {
+            //                        Console.WriteLine("Password has to have lower casing");
+            //                    }
+            //                }
+            //                else
+            //                {
+            //                    Console.WriteLine("Password needs an Upper case");
+            //                }
+            //            }
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Password must have less than 24 characters");
+            //    }
+
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Password has to be more than 6 characters");
+            //}
 
             Console.WriteLine("PASS all checks!");
             Console.ReadLine();

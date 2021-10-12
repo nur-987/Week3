@@ -14,6 +14,7 @@ namespace PrimeNumber
     /// </summary>
     class Program
     {
+        public static List<int> reverseNum = new List<int>();
         public static List<int> pmNumber = new List<int>();
         static void Main(string[] args)
         {
@@ -22,6 +23,8 @@ namespace PrimeNumber
             {
                 CheckifPrime(i);
             }
+
+            Display();
         }
 
         public static void CheckifPrime(int num) //CheckIfPrime
@@ -50,11 +53,50 @@ namespace PrimeNumber
 
         public static void Reverse(int num)
         {
-            pmNumber.Add(num);
+            int reverse = 0;
+            if (num >=10)
+            {
+                int remainder = num % 10;
+                reverse = (reverse * 10) + remainder;
+                num = num / 10;
+            }
+
+            reverseNum.Add(reverse);
+
+            foreach (int revNum in reverseNum)
+            {
+                int i;
+                for (i = 2; i <= revNum - 1; i++)
+                {
+                    if (num % i == 0)
+                    {
+                        //not a PM
+                        return;
+                    }
+                }
+                if (i == num)
+                {
+                    //is a PM 
+                    int x = num;
+                    Console.WriteLine("This is a PM number:" + x);
+                    pmNumber.Add(x);
+
+                }
+                return;
+            }
+
         }
+
+        public static void Display()
+        {
+            foreach (int x in pmNumber)
+            {
+                Console.WriteLine(x);
+            }
+        }
+
+
     }
 }
 
-/*Currently cannot store the PM number 
- * and reverse it to do a 2nd check
- */
+
